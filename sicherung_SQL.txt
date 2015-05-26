@@ -1,0 +1,19 @@
+ SELECT count(ergebnisse.option) as anzahl, ergebnisse.option FROM ergebnisse WHERE umfrage = 1 group by ergebnisse.option 
+
+
+
+ SELECT * FROM
+(SELECT * FROM optionen WHERE umfrage = 1) as o
+JOIN
+(SELECT count(ergebnisse.option) as anzahl, ergebnisse.option FROM ergebnisse WHERE umfrage = 1 group by ergebnisse.option) as e
+ON o.option = e.option
+
+
+
+
+
+{"chosenOption":"NEIN"}
+
+
+
+{"name":"Umfrage_2"},  "optionen":[{"option":"sehr gut"}, {"option":"gut"}, {"option":"ausreichend"}]
